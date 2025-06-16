@@ -13,9 +13,9 @@ app.use(cors());
 app.use(express.json());
 
 const uri = process.env.MONGO_URI;
-const client = new MongoClient(uri, {
-  serverApi: ServerApiVersion.v1,
-});
+const client = new MongoClient(uri); // ← no options
+const client = new MongoClient(uri); // ← no options
+
 
 async function run() {
   try {
