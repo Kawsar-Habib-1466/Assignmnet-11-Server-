@@ -11,7 +11,12 @@ const verifyToken = async (req, res, next) => {
 
   try {
     const decoded = await admin.auth().verifyIdToken(token);
-    req.user = decoded; // contains email, uid, etc.
+
+    // ✅ Add these logs for debugging
+    console.log("🔐 Token received:", token.slice(0, 20) + "...");
+    console.log("👤 Decoded user:", decoded);
+
+    req.user = decoded;
     next();
   } catch (error) {
     console.error('Token verification error:', error);
