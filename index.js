@@ -14,7 +14,7 @@ app.use(express.json());
 
 const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri); // ← no options
-const client = new MongoClient(uri); // ← no options
+
 
 
 async function run() {
